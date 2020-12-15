@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+//protoc --proto_path=. --micro_out=. --go_out=./ proto/hello/hello.proto
+
+package go.micro.srv.hello;
+
+service Hello{
+    rpc SayHi(Request) returns (Response){};
+    rpc Add(Params) returns (Result){};
+}
+
+message Request {
+    string name = 1;
+    string address = 2;
+}
+
+message Response{
+    string ret = 1;
+}
+
+message Params{
+    int32 num1 = 1;
+    int32 num2 = 2;
+}
+
+message Result{
+    int32 res = 1;
+}
